@@ -1,0 +1,39 @@
+.video {}
+.video__wrap {
+    position: relative;
+}
+// .video__node {
+//     cursor: pointer;
+// }
+.video__node,
+.video__mobile {
+    width: 100%;
+}
+.video__mobile {
+    display: none;
+}
+.video__poster,
+.video__action {
+    cursor: pointer;
+    height: 100%;
+    left: 0;
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    transition: opacity $base-duration $ease;
+}
+.video__action {
+    opacity: 0;
+}
+.video.is-notautoplay {
+    .video__action {
+        opacity: 1;
+        }
+}
+.video.is-playback {
+    .video__action,
+    .video__poster {
+        opacity: 0;
+        }
+}

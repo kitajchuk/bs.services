@@ -1,0 +1,28 @@
+.toggle {
+    height: 0;
+    overflow: hidden;
+
+    &.is-active {
+        height: auto;
+
+        .toggle__inner {
+            opacity: 1;
+            }
+    }
+}
+.toggle__inner {
+    opacity: 0;
+    transition: opacity $base-duration $ease;
+    }
+.toggler {
+    padding-bottom: 46px;
+    padding-top: 42px;
+
+    &.is-active {
+        .icon--plus {
+            .vert {
+                display: none;
+                }
+        }
+    }
+}

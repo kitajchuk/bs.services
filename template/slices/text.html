@@ -1,0 +1,6 @@
+<%
+const dom = locals.context.dom;
+%>
+<div class="cms -text--<%= slice.primary.textalign.toLowerCase() %>">
+    <%- dom.RichText.asHtml( slice.primary.text ) %>
+</div>

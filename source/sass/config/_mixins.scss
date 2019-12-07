@@ -1,0 +1,88 @@
+/******************************************************************************
+ * Fonts: Util
+*******************************************************************************/
+@mixin font-normal() {
+    font-stretch: normal;
+    font-style: normal;
+}
+
+
+/******************************************************************************
+ * Fonts: Styles
+*******************************************************************************/
+@mixin font-family() {
+    font-family: $font-family-regular, "Helvetica Neue";
+    @include font-normal();
+}
+@mixin font-family-medium() {
+    font-family: $font-family-medium, "Helvetica Neue";
+    @include font-normal();
+}
+
+
+/******************************************************************************
+ * Type
+*******************************************************************************/
+@mixin b() {
+    @include font-family-medium();
+}
+@mixin p() {
+    font-size: $p-size;
+    letter-spacing: $p-kern;
+    line-height: $p-line;
+}
+@mixin a() {
+    display: inline;
+    text-decoration: none;
+}
+@mixin h1() {
+    font-size: $h1-size;
+    letter-spacing: $h1-kern;
+    line-height: $h1-line;
+}
+@mixin h2() {
+    font-size: $h2-size;
+    letter-spacing: $h2-kern;
+    line-height: $h2-line;
+}
+@mixin h3() {
+    font-size: $h3-size;
+    letter-spacing: $h3-kern;
+    line-height: $h3-line;
+}
+
+
+/******************************************************************************
+ * Wraps
+*******************************************************************************/
+@mixin wrap() {
+    padding-left: $padding-wrap;
+    padding-right: $padding-wrap;
+}
+
+
+/******************************************************************************
+ * Document states
+*******************************************************************************/
+@mixin state( $module, $state ) {
+    .is-#{$module}-#{$state} & {
+        @content;
+    }
+}
+
+
+/******************************************************************************
+ * Media queries
+ *
+ * @see ../config/_variables.scss for Breakpoints
+*******************************************************************************/
+@mixin respond( $width ) {
+    @media only screen and ( max-width: $width ) {
+        @content;
+    }
+}
+@mixin respond-min( $width ) {
+    @media only screen and ( min-width: $width ) {
+        @content;
+    }
+}

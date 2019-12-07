@@ -1,0 +1,8 @@
+<%
+const image = slice.primary.image;
+const imageMobile = slice.primary.imagemobile;
+const style = slice.primary.style.toLowerCase().replace( /\s/g, "-" );;
+%>
+<div class="media media--<%= style %> -text--center">
+    <%- include( '../partials/image.html', { image, imageMobile } ) %>
+</div>

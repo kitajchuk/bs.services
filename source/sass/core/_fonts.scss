@@ -1,0 +1,21 @@
+/******************************************************************************
+ * Font Declarations
+ *
+ * Use `$font-path` which is determined in `webpack.config.js`
+*******************************************************************************/
+
+// Suissintl Medium M
+@font-face {
+    font-family: $font-family-medium;
+    src: url( "#{$font-path}SuisseIntl-Medium-WebM.woff" ) format( "woff" );
+    font-style: normal;
+    font-stretch: normal;
+}
+
+// Suissintl Regular M
+@font-face {
+    font-family: $font-family-regular;
+    src: url( "#{$font-path}SuisseIntl-Regular-WebM.woff" ) format( "woff" );
+    font-style: normal;
+    font-stretch: normal;
+}

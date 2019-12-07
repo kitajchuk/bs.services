@@ -1,0 +1,154 @@
+/******************************************************************************
+ * Fonts
+*******************************************************************************/
+$font-path: "/fonts/";
+$font-family-regular: "SuisseIntl-Regular";
+$font-family-medium: "SuisseIntl-Medium";
+
+
+
+/******************************************************************************
+ * Colors
+*******************************************************************************/
+$black: #000;
+$charcoal: #333;
+$medium: #555;
+$white: #fff;
+$grey: #eee;
+$cream: #f0f0f0;
+$grey-link: #6e6e6e;
+$grey-link-light: #b4b4b4;
+
+
+
+/******************************************************************************
+ * Grid
+*******************************************************************************/
+$grid-length: 12;
+$grid-columns: 12 11 10 9 8 7 6 5 4 3 2 1;
+
+
+
+/******************************************************************************
+ * Spacing
+*******************************************************************************/
+$padding-wrap: 8vw;
+$padding-navi: 30px;
+$padding-main: 120px;
+
+$padding-module: 14vw;
+$padding-module-2: 10vw;
+$padding-module-3: 7vw;
+
+$padding-media-wide: 8vw;
+
+$padding-media-small: 8vw;
+$padding-media-small-2: 16vw;
+
+$padding-media-square: 8vw;
+$padding-media-square-2: 16vw;
+$padding-media-square-3: 24vw;
+$padding-media-square-4: 28vw;
+
+$padding-media-vertical: 20vw;
+$padding-media-vertical-2: 0;
+
+$padding-media-diptych: 20vw;
+$padding-media-diptych-2: 24vw;
+$padding-media-diptych-3: 32vw;
+// $padding-media-diptych-4: 32vw;
+
+$padding-media-diptych-gutter: 4vw;
+$padding-media-vertical-maxwidth: 320px;
+
+$padding-text: 8vw;
+$padding-text-2: 16vw;
+$padding-text-3: 24vw;
+$padding-text-4: 28vw;
+
+$column-count: 2;
+$column-gap: 62px;
+
+$bump: 8.8vw;
+$bump-2: 4.8vw;
+$bump-3: 3.2vw;
+
+
+
+/******************************************************************************
+ * Sizes
+*******************************************************************************/
+$wrap-copy: 700px;
+$logo-width: 480px;
+$navi-height: 75px;
+$navi-right: 36px;
+$switch-height: 14px;
+$switch-width: 12px;
+$switch-tog-height: 5px;
+$switch-margin: 24px;
+$icon-plus-length: 16px;
+
+
+
+
+/******************************************************************************
+ * Typography
+*******************************************************************************/
+$p-size: 16px;
+$p-line: 1.8;
+$p-kern: 0.2px;
+$h1-size: 38px;
+$h1-size-2: 44px;
+$h1-size-3: 56px;
+$h1-size-4: 72px;
+$h1-line: 1.333333;
+$h1-kern: 0.2px;
+$h2-size: 16px;
+$h2-size-2: 19px;
+$h2-size-3: 24px;
+$h2-line: 1.8;
+$h2-kern: 0.2px;
+$h3-size: 24px;
+$h3-size-2: 32px;
+$h3-size-3: 44px;
+$h3-line: 1.333333;
+$h3-kern: 0.2px;
+$letter-spacing: 0.8px;
+
+
+
+/******************************************************************************
+ * Breakpoints
+*******************************************************************************/
+$break-desktop: 2048px;
+$break-cinema-hd: 1920px;
+$break-laptop-full: 1680px;
+$break-laptop-medium: 1440px;
+$break-ipad-pro-width: 1366px;
+$break-tablet-full: 1280px;
+$break-tablet-medium: 1024px;
+$break-tablet-small: 768px;
+$break-mobile-full: 640px;
+$break-mobile-medium: 480px;
+$break-mobile-small: 320px;
+
+
+
+/******************************************************************************
+ * Animations
+*******************************************************************************/
+$ease: cubic-bezier( 0.25, 0.1, 0.25, 1 );
+$long-duration: 600ms;
+$base-duration: 400ms;
+$fast-duration: 200ms;
+
+
+
+/******************************************************************************
+ * Layering
+*******************************************************************************/
+$z_layer_behind: -1;
+$z_layer_screen: 1003;
+$z_layer_menu: 1001;
+$z_layer_navi: 1002;
+$z_layer_intro: 1003;

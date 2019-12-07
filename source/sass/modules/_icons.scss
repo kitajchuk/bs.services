@@ -1,0 +1,62 @@
+/******************************************************************************
+ * Icons
+*******************************************************************************/
+.icon-wrap {
+    cursor: pointer;
+    }
+.icon {
+    cursor: pointer;
+    display: inline-block;
+    line-height: 1;
+    position: relative;
+    text-align: center;
+    vertical-align: middle;
+
+    div {
+        display: inline-block;
+        }
+}
+.icon--plus {
+    height: $icon-plus-length;
+    pointer-events: none;
+    width: $icon-plus-length;
+
+    .vert,
+    .horz {
+        background-color: $white;
+        position: absolute;
+        }
+    .vert {
+        height: 100%;
+        left: 50%;
+        top: 0;
+        transform: translateX( -50% );
+        width: 2px;
+        }
+    .horz {
+        height: 2px;
+        left: 0;
+        top: 50%;
+        transform: translateY( -50% );
+        width: 100%;
+        }
+}
+.icon--plus--ex {
+    transform: rotate( -45deg );
+}
+.icon--switch {
+    background-color: transparent;
+    border: 2px solid $white;
+    height: $switch-height;
+    position: relative;
+    width: $switch-width;
+
+    .tog {
+        background-color: $white;
+        bottom: 0;
+        height: $switch-tog-height;
+        left: 0;
+        position: absolute;
+        width: 100%;
+        }
+}

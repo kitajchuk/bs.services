@@ -1,0 +1,31 @@
+/******************************************************************************
+ * Document States
+*******************************************************************************/
+.is-theme-light {
+    background-color: $cream;
+
+    body {
+        color: $black;
+        }
+    .icon--switch {
+        border-color: $black;
+
+        .tog {
+            background-color: $black;
+            }
+    }
+    .icon--plus {
+        .vert,
+        .horz {
+            background-color: $black;
+            }
+    }
+}
+.is-home-page {
+    .navi__a--home {
+        display: inline-block;
+        }
+    .navi__a--ex {
+        display: none;
+        }
+}

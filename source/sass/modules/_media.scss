@@ -1,0 +1,181 @@
+.media {}
+.media__el {
+    max-width: 100%;
+    width: 100%;
+    }
+.media--wide {
+    padding-left: $padding-media-wide;
+    padding-right: $padding-media-wide;
+
+    .media__el {}
+
+    .slice:first-child & {
+        padding-top: 35vw;
+
+        @include respond-min( 768px ) {
+            padding-top: 20vw;
+        }
+
+        @include respond-min( 1280px ) {
+            padding-top: 5.2vw;
+        }
+
+        @include respond-min( 1920px ) {
+            padding-top: 4vw;
+        }
+
+        @include respond-min( 2560px ) {
+            padding-top: 3vw;
+        }
+    }
+}
+.media--small {
+    padding-left: $padding-media-small;
+    padding-right: $padding-media-small;
+
+    @include respond-min( $break-tablet-medium ) {
+        padding-left: $padding-media-small-2;
+        padding-right: $padding-media-small-2;
+    }
+
+    .media__el {}
+
+    .slice:first-child &,
+    .casestudy:first-child & {
+        padding-top: 35vw;
+
+        @include respond-min( 768px ) {
+            padding-top: 20vw;
+        }
+
+        @include respond-min( 1280px ) {
+            padding-top: 8vw;
+        }
+
+        @include respond-min( 1920px ) {
+            padding-top: 6vw;
+        }
+
+        @include respond-min( 2560px ) {
+            padding-top: 5vw;
+        }
+    }
+}
+.media--square {
+    padding-left: $padding-media-square;
+    padding-right: $padding-media-square;
+
+    @include respond-min( $break-tablet-small ) {
+        padding-left: $padding-media-square-2;
+        padding-right: $padding-media-square-2;
+    }
+
+    @include respond-min( $break-tablet-full ) {
+        padding-left: $padding-media-square-3;
+        padding-right: $padding-media-square-3;
+    }
+
+    @include respond-min( $break-laptop-full ) {
+        padding-left: $padding-media-square-4;
+        padding-right: $padding-media-square-4;
+    }
+
+    .media__el {}
+
+    .slice:first-child &,
+    .casestudy:first-child & {
+        padding-top: 34vw;
+
+        @include respond-min( 768px ) {
+            padding-top: 24vw;
+        }
+
+        @include respond-min( 1024px ) {
+            padding-top: 3vw;
+        }
+
+        @include respond-min( 1680px ) {
+            padding-top: 7.5vw;
+        }
+
+        @include respond-min( 1920px ) {
+            padding-top: 6vw;
+        }
+
+        @include respond-min( 2560px ) {
+            padding-top: 4.5vw;
+        }
+    }
+}
+.media--vertical  {
+    padding-left: $padding-media-vertical;
+    padding-right: $padding-media-vertical;
+
+    @include respond-min( $break-tablet-small ) {
+        padding-left: $padding-media-vertical-2;
+        padding-right: $padding-media-vertical-2;
+    }
+
+    .media__el {
+        max-width: $padding-media-vertical-maxwidth;
+        }
+
+    .slice:first-child &,
+    .casestudy:first-child & {
+        padding-top: 24.5vw;
+
+        @include respond-min( 768px ) {
+            padding-top: 16.6vw;
+        }
+
+        @include respond-min( 1440px ) {
+            padding-top: 4vw;
+        }
+
+        @include respond-min( 1680px ) {
+            padding-top: 9vw;
+        }
+
+        @include respond-min( 2560px ) {
+            padding-top: 11.7vw;
+        }
+    }
+}
+.media--diptych  {
+    padding-left: 20vw;
+    padding-right: 20vw;
+
+    @include respond-min( 1680px ) {
+        padding-left: 24vw;
+        padding-right: 24vw;
+    }
+
+    @include respond-min( 2048px ) {
+        padding-left: 32vw;
+        padding-right: 32vw;
+    }
+
+    .media__el {
+        max-width: $padding-media-vertical-maxwidth;
+        }
+
+    .slice:first-child & {
+        padding-top: 24.5vw;
+
+        @include respond-min( 768px ) {
+            padding-top: 16.6vw;
+        }
+
+        @include respond-min( 1440px ) {
+            padding-top: 5vw;
+        }
+
+        @include respond-min( 1680px ) {
+            padding-top: 9vw;
+        }
+
+        @include respond-min( 2560px ) {
+            padding-top: 11.7vw;
+        }
+    }
+}

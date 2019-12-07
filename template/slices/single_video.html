@@ -1,0 +1,27 @@
+<%
+const style = slice.primary.style.toLowerCase().replace( /\s/g, "-" );
+const poster = (slice.primary.poster && slice.primary.poster.url) ? slice.primary.poster : null;
+const video = {
+    normal: slice.primary.video,
+    mobile: (slice.primary.videomobile && slice.primary.videomobile.url) ? slice.primary.videomobile : null
+};
+const type = slice.primary.video_function.toLowerCase();
+const isAuto = (type === "autoplay");
+%>
+<div class="video js-video media media--<%= style %> -text--center">
+    <div class="media__el video__wrap -column">
+        <video class="video__node js-video-node" data-src="<%= video.normal.url %>" data-mob-src="<%= video.mobile ? video.mobile.url : '' %>" <% if ( isAuto ) { %>data-autoplay="true" playsinline loop muted<% } %>></video>
+        <% if ( !isAuto ) { %>
+            <% if ( poster ) { %>
+                <div class="video__poster js-video-poster js-lazy-image -cover" data-img-src="<%= poster.url %>"></div>
+            <% } %>
+        <% } %>
+        <div class="video__action js-video-action ghost">
+            <div class="ghost__child">
+                <div class="video__play">
+                    <div class="h1 -light">Play</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

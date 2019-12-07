@@ -1,0 +1,9 @@
+<% if ( item.data.body ) { %>
+    <% item.data.body.forEach(( slice, i ) => { %>
+        <section class="slice slice__<%= slice.slice_type %> animate animate--slow js-animate -module">
+            <div class="slice__content">
+                <%- include( `../slices/${slice.slice_type}.html`, {slice: slice, item: item} ) %>
+            </div>
+        </section>
+    <% }) %>
+<% } %>

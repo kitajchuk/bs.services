@@ -1,0 +1,42 @@
+.diptych {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    .diptych__col {
+        text-align: center;
+        width: 100%;
+
+        @include respond-min( $break-tablet-medium ) {
+            width: 50%;
+        }
+
+        &:first-child {
+            padding-bottom: $padding-module-2;
+
+            @include respond-min( $break-tablet-small ) {
+                padding-bottom: $padding-module-3;
+            }
+
+            @include respond-min( $break-tablet-medium ) {
+                padding-bottom: 0;
+                text-align: left;
+            }
+        }
+
+        &:last-child {
+            padding-top: $padding-module-2;
+
+            @include respond-min( $break-tablet-small ) {
+                padding-top: $padding-module-3;
+            }
+
+            @include respond-min( $break-tablet-medium ) {
+                padding-top: 0;
+                text-align: right;
+            }
+        }
+    }
+}

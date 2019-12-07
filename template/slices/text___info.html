@@ -1,0 +1,16 @@
+<%
+const dom = locals.context.dom;
+%>
+<div class="cms">
+    <%- dom.RichText.asHtml( slice.primary.text ) %>
+</div>
+<div class="cms -text--center">
+    <div class="icon-wrap toggler js-toggler" data-target="js-toggle">
+        <%- include( '../partials/icon_plus.html', { ex: false } ) %>
+    </div>
+</div>
+<div class="cms toggle js-toggle">
+    <div class="toggle__inner -callme">
+        <%- dom.RichText.asHtml( slice.primary.info ) %>
+    </div>
+</div>

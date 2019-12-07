@@ -1,0 +1,17 @@
+<%
+const navi = locals.context.get( 'navi' );
+%>
+<nav class="navi js-navi -fzero">
+    <ul class="navi__ul">
+        <% navi.items.forEach(( item, i ) => { %>
+            <li class="navi__li navi__li--<%= item.uid %> p b -column">
+                <a class="navi__a navi__a--<%= item.uid %> js-navi-a js-navi--<%= item.uid %>" href="<%= item.slug %>"><%= item.title %></a>
+                <% if ( i === 0 ) { %>
+                    <a href="<%= item.slug %>" class="navi__a navi__a--ex js-router-ex">
+                        <%- include( '../partials/icon_plus.html', { ex: true } ) %>
+                    </a>
+                <% } %>
+            </li>
+        <% }) %>
+    </ul>
+</nav>

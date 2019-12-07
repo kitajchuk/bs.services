@@ -1,0 +1,46 @@
+<%
+const dom = locals.context.dom;
+const docs = locals.context.docs;
+const casestudies = docs.casestudy.filter(( casestudy ) => {
+    const state = casestudy.data.state;
+
+    return (!state || (state && state !== 'Private'));
+});
+
+casestudies.forEach(( casestudy, i ) => { %>
+    <%
+    const isFirst = (i === 0);
+    const title = dom.RichText.asText( casestudy.data.title );
+    const image = casestudy.data.image
+    const imageMobile = casestudy.data.imagemobile
+    const style = casestudy.data.style;
+    const video = (casestudy.data.video && casestudy.data.video.url) ? casestudy.data.video : null;
+    const videoMobile = (casestudy.data.video_mobile && casestudy.data.video_mobile.url) ? casestudy.data.video_mobile : null;
+    const videoStyle = casestudy.data.style;
+    %>
+    <section class="casestudy animate animate--slow js-animate -module -text--center">
+        <% if ( video ) { %>
+            <%
+            const slice = {
+                primary: {
+                    style: videoStyle,
+                    video: video,
+                    videomobile: videoMobile,
+                    video_function: 'Autoplay'
+                }
+            };
+            %>
+            <a href="<%= locals.context.getUrl( casestudy ) %>" class="-column">
+                <%- include( '../slices/single_video.html', {slice: slice} ) %>
+                <div class="p -bump"><%= title %></div>
+            </a>
+        <% } else { %>
+            <div class="media media--<%= style.toLowerCase() %>">
+                <a href="<%= locals.context.getUrl( casestudy ) %>" class="-column">
+                    <%- include( '../partials/image.html', { image, imageMobile } ) %>
+                    <div class="p -bump"><%= title %></div>
+                </a>
+            </div>
+        <% } %>
+    </section>
+<% }) %>

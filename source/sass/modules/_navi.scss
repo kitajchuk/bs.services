@@ -1,0 +1,36 @@
+.navi {
+    background-color: transparent;
+    height: $navi-height;
+    left: 0;
+    padding-left: $padding-navi;
+    padding-right: $padding-navi;
+    pointer-events: none;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: $z_layer_navi;
+
+    .p {
+        line-height: 1;
+        }
+}
+.navi__ul {
+    align-items: center;
+    display: flex;
+    height: 100%;
+    justify-content: space-between;
+    width: 100%;
+    }
+.navi__a {
+    display: inline-block;
+    vertical-align: middle;
+    }
+.navi__li--home {}
+.navi__li--info {}
+.navi__a--home {
+    display: none;
+    }
+.navi__a {
+    line-height: 1;
+    pointer-events: auto;
+    }
