@@ -1,9 +1,9 @@
 <%
-const item = locals.context.get( 'item' );
-const next = locals.context.get( 'next' );
+const doc = locals.context.doc;
+const next = locals.context.next;
 %>
-<article class="js-switch" data-switch="<%= item.data.background.toLowerCase() %>">
-    <%- include( '../partials/casestudy_slices.html', {item: item} ) %>
+<article class="js-switch" data-switch="<%= doc.data.background.toLowerCase() %>">
+    <%- include( '../partials/casestudy_slices.html', {doc: doc} ) %>
 </article>
 <footer class="pager animate animate--slow js-animate -module -text--center">
     <% if ( next ) { %>

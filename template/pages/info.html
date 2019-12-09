@@ -1,11 +1,11 @@
 <%
 const dom = locals.context.dom;
-const item = locals.context.get( 'item' );
+const doc = locals.context.doc;
 %>
 <section class="info ghost -plate -text--center">
     <div class="ghost__child -full">
         <div class="cms slice__text">
-            <%- dom.RichText.asHtml( item.data.description ) %>
+            <%- dom.RichText.asHtml( doc.data.description ) %>
         </div>
     </div>
 </section>

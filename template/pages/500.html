@@ -1,11 +1,12 @@
 <%
 const error = locals.context.get( 'error' );
 %>
-<div class="cms -pad">
-    <div class="-wrap -exp">
-        <h3 class="h3">Page Error</h3>
-<pre class="-expt -spot">
+<section class="info ghost -plate -text--center">
+    <div class="ghost__child -full">
+        <div class="cms slices__text -wrap">
+            <pre class="-expt -spot">
 <%- error.toString().replace( /\</g, '&lt;' ).replace( /\>/g, '&gt;' ) %>
-</pre>
+            </pre>
+        </div>
     </div>
-</div>
+</section>
