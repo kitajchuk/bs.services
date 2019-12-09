@@ -114,7 +114,7 @@ const cleanStatic = ( json ) => {
 
                         lager.error( `[Clutch] Un-Linking static link ${link}` );
 
-                        if ( fs.existsSync( linkJson ) ) {
+                        if ( fs.existsSync( linkJson ) && (linkJson !== `${saveLoc}/`) ) {
                             fs.unlinkSync( linkJson );
 
                             lager.error( `[Clutch] Un-Linking static link ${linkJson}` );
