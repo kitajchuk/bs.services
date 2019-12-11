@@ -40,8 +40,7 @@ const core = {
 };
 const ContextObject = require( "../class/ContextObject" );
 const apiOptions = {
-    accessToken: core.config.api.token || null,
-    fetchLinks: core.config.api.fetchLinks || []
+    accessToken: core.config.api.token || null
 };
 
 
@@ -91,12 +90,9 @@ const getSite = ( req ) => {
                     }
 
                     navi.items.push({
-                        id: slice.primary.page.id || "",
                         uid: slice.primary.page.uid || slice.primary.slug,
-                        type: slice.primary.page.type || slice.primary.slug,
                         slug,
                         title: slice.primary.name,
-                        label: slice.primary.label
                     });
                 });
 
@@ -231,11 +227,15 @@ const getDocs = () => {
     return new Promise(( resolve, reject ) => {
         let docs = {};
         const getDocs = ( p ) => {
-            cache.api.form( "everything" )
-                .pageSize( 100 )
-                .page( p )
-                .ref( cache.api.master() )
-                .submit()
+            const options = {
+                fetchLinks: core.config.api.fetchLinks || [],
+                pageSize: 100,
+                page: p,
+                ref: cache.api.master()
+            };
+
+            cache.api
+                .query( "", options )
                 .then(( json ) => {
                     json.results.forEach(( doc ) => {
                         if ( !docs[ doc.type ] ) {
