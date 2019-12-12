@@ -62,7 +62,7 @@ const saveFile = ( obj ) => {
         obj.html = htmlMin.minify( obj.html, {
             caseSensitive: true,
             collapseWhitespace: true,
-            collapseInlineTagWhitespace: true,
+            collapseInlineTagWhitespace: false,
             keepClosingSlash: false,
             minifyCSS: true,
             minifyJS: true,
