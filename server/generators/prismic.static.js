@@ -59,17 +59,7 @@ const saveFile = ( obj ) => {
         regex = new RegExp( baseUrlBrowserSync, "gm" );
 
         obj.html = String( obj.html ).replace( regex, (buildConfig.env.sandbox ? "" : buildConfig.url) );
-        obj.html = htmlMin.minify( obj.html, {
-            caseSensitive: true,
-            collapseWhitespace: true,
-            collapseInlineTagWhitespace: false,
-            keepClosingSlash: false,
-            minifyCSS: true,
-            minifyJS: true,
-            removeComments: true,
-            removeEmptyAttributes: true,
-            removeRedundantAttributes: true
-        });
+        obj.html = htmlMin.minify( obj.html, config.static.minify.html );
 
         if ( !obj.json.error ) {
             const placeJson = place.replace( /\.html$/, ".json" );
@@ -95,7 +85,7 @@ const cleanStatic = ( json ) => {
             let regex = new RegExp( `^${buildConfig.url}\/{0,1}|\/$`, "g" );
             const slug = url.loc[ 0 ].replace( regex, "" );
             const slugHtml = slug ? `${slug}/index.html` : "index.html";
-            const slugJson = slug ? `${slug}/index.json` : "";
+            const slugJson = slug ? `${slug}/index.json` : "index.json";
             const uris = slugHtml.split( "/" );
             const urisJson = slugJson.split( "/" );
             const files = {
@@ -182,11 +172,14 @@ const requestLoc = ( url ) => {
 // Request a sitemap location for API
 const requestApi = ( url ) => {
     return new Promise(( resolve, reject ) => {
-        const api = url.loc[ 0 ].replace( buildConfig.url, baseUrl ).replace( baseUrl, `${baseUrl}/api` );
+        const api = url.loc[ 0 ].replace( buildConfig.url, baseUrl );
 
         request({
             url: api,
-            method: "GET"
+            method: "GET",
+            qs: {
+                format: "json"
+            }
 
         }).then(( json ) => {
             resolve( json );

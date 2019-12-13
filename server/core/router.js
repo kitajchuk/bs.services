@@ -52,19 +52,19 @@ expressApp.use( express.static( core.config.template.staticDir, {
  */
 const setRoutes = () => {
     // SYSTEM
-    // expressApp.get( "/preview", getPreview );
-    // expressApp.post( "/webhook", postWebhook );
     expressApp.get( "/robots.txt", getRobots );
     expressApp.get( "/sitemap.xml", getSitemap );
 
-    // API => JSON
-    expressApp.get( "/api/:type", setReq, getApi );
-    expressApp.get( "/api/:type/:uid", setReq, getApi );
+    // SYSTEM => OLD
+    // expressApp.get( "/preview", getPreview );
+    // expressApp.post( "/webhook", postWebhook );
 
-    // URI => HTML
+    // URI => HTML?format=json
+    // URI => HTML?nocache=420
     expressApp.get( "/", checkCSRF, setReq, getPage );
     expressApp.get( "/:type", checkCSRF, setReq, getPage );
     expressApp.get( "/:type/:uid", checkCSRF, setReq, getPage );
+    expressApp.get( "/:type/:uid/index.json", checkCSRF, setReq, getPage );
 };
 
 
@@ -90,49 +90,41 @@ const getKey = ( type ) => {
 
 /**
  *
- * :GET API
- *
- */
-const getApi = ( req, res ) => {
-    const key = getKey( req.params.type );
-    const done = () => {
-        core.query.getApi( req, res, listeners[ key ] ).then(( result ) => {
-            res.status( 200 ).json( result );
-        });
-    };
-
-    if ( req.query.nocache ) {
-        cacheIndex = Number( req.query.nocache );
-
-        core.query.getSite().then(() => {
-            lager.cache( `[Clutch] Cache query index ${cacheIndex}` );
-
-            done();
-        });
-
-    } else {
-        done();
-    }
-};
-
-
-
-/**
- *
  * :GET Pages
  *
  */
 const getPage = ( req, res ) => {
     const key = getKey( req.params.type );
     const done = () => {
-        core.content.getPage( req, res, listeners[ key ] ).then(( callback ) => {
-            // Handshake callback
-            callback(( status, html ) => {
-                res.status( status ).send( html );
+        const rJson = /\.json$/;
+        const isStaticJson = rJson.test( req.path );
+        const isServerJson = (req.query.format === "json");
+
+        if ( isStaticJson || isServerJson ) {
+            if ( isStaticJson && rJson.test( req.params.uid ) ) {
+                delete req.params.uid;
+            }
+
+            core.query.getApi( req, res, listeners[ key ] ).then(( result ) => {
+                if ( isServerJson ) {
+                    res.status( 200 ).json( result );
+
+                } else {
+                    res.status( 200 ).send( JSON.stringify( result ) );
+                }
             });
-        });
+
+        } else {
+            core.content.getPage( req, res, listeners[ key ] ).then(( callback ) => {
+                // Handshake callback
+                callback(( status, html ) => {
+                    res.status( status ).send( html );
+                });
+            });
+        }
     };
 
+    // Local CACHEBUSTER!!!
     if ( req.query.nocache ) {
         cacheIndex = Number( req.query.nocache );
 

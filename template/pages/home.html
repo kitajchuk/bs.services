@@ -5,6 +5,9 @@ const casestudies = docs.casestudy.filter(( casestudy ) => {
     const state = casestudy.data.state;
 
     return (!state || (state && state !== 'Private'));
+
+}).sort(( docA, docB ) => {
+    return ( docB.data.order > docA.data.order ? -1 : 1 );
 });
 
 casestudies.forEach(( casestudy, i ) => { %>
@@ -18,7 +21,7 @@ casestudies.forEach(( casestudy, i ) => { %>
     const videoMobile = (casestudy.data.video_mobile && casestudy.data.video_mobile.url) ? casestudy.data.video_mobile : null;
     const videoStyle = casestudy.data.style;
     %>
-    <section class="casestudy animate animate--slow js-animate -module -text--center">
+    <section class="casestudy animate animate--slow js-animate -module -text--center" data-order="<%= casestudy.data.order %>">
         <% if ( video ) { %>
             <%
             const slice = {

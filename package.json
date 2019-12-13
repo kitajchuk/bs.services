@@ -9,7 +9,8 @@
     "bootstrap": "node clutch.install.js",
     "bootstrap:hobo": "cd ./node_modules/properjs-hobo && npm install && npm run build -- 'is eq not one next prev attr last first index parent filter detach append remove trigger prepend closest children removeAttr toggleClass'",
     "watch": "export NODE_ENV=sandbox ; ./node_modules/.bin/webpack --env.sandbox --hide-modules --colors --watch",
-    "server": "export NODE_ENV=sandbox ; cd ./server && npm run start",
+    "server": "export NODE_ENV=sandbox ; ./node_modules/.bin/pm2 --no-daemon --watch -a start ./ecosystem.config.js",
+    "server:stop": "./node_modules/.bin/pm2 stop 'all' --watch",
     "build": "npm rebuild node-sass ; npm run bootstrap ; npm run build:netlify ; npm run static:build",
     "build:netlify": "export NODE_ENV=netlify ; ./node_modules/.bin/webpack --env.netlify --progress --profile --display-modules --colors -p",
     "static:build": "export NODE_ENV=netlify ; export CLUTCH_CLEAN=0 ; node clutch.static.js",
@@ -56,6 +57,21 @@
     "svg-inline-loader": "^0.8.0",
     "webpack": "^4.12.0",
     "webpack-cli": "^3.0.4"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "compression": "^1.7.2",
+    "consolidate": "^0.15.1",
+    "cookie-parser": "^1.4.3",
+    "csurf": "^1.9.0",
+    "ejs": "^2.6.1",
+    "express": "^4.16.3",
+    "pm2": "^3.0.4",
+    "prismic-javascript": "^1.5.0-beta.2",
+    "properjs-lager": "^0.1.0",
+    "request": "^2.87.0",
+    "request-promise": "^4.2.2",
+    "xml2js": "^0.4.22"
   },
   "repository": {
     "type": "git",
