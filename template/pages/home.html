@@ -5,9 +5,6 @@ const casestudies = docs.casestudy.filter(( casestudy ) => {
     const state = casestudy.data.state;
 
     return (!state || (state && state !== 'Private'));
-
-}).sort(( docA, docB ) => {
-    return ( docB.data.order > docA.data.order ? -1 : 1 );
 });
 
 casestudies.forEach(( casestudy, i ) => { %>

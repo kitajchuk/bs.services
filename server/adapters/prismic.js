@@ -96,6 +96,11 @@ const getSite = ( req ) => {
                     });
                 });
 
+                // Sort casestudies
+                docs.casestudy = docs.casestudy.sort(( docA, docB ) => {
+                    return ( docB.data.order > docA.data.order ? -1 : 1 );
+                });
+
                 cache.site = site;
                 cache.navi = navi;
                 cache.docs = docs;
