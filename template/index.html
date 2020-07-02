@@ -15,7 +15,6 @@ context.pageTemplate = context.getTemplate();
         <meta http-equiv="x-dns-prefetch-control" content="on" />
         <link rel="dns-prefetch" href="//clutch-example.cdn.prismic.io" />
         <link rel="dns-prefetch" href="//prismic-io.s3.amazonaws.com" />
-        <link rel="dns-prefetch" href="//www.google-analytics.com" />
         <meta name="description" content="<%= context.pageDescription %>" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="google-site-verification" content="<%= context.site.data.googleVerify %>" />
@@ -64,13 +63,5 @@ context.pageTemplate = context.getTemplate();
         </main>
         <%- include( 'site/intro.html' ) %>
         <script src="<%= sourceJS %>"></script>
-        <script>
-            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-            })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-            ga('create', '<%= context.site.data.googleUA %>', 'auto');
-            ga('send', 'pageview');
-        </script>
     </body>
 </html>
