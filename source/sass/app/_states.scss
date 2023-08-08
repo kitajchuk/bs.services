@@ -2,30 +2,34 @@
  * Document States
 *******************************************************************************/
 .is-theme-light {
-    background-color: $cream;
+  background-color: $cream;
 
-    body {
-        color: $black;
-        }
-    .icon--switch {
-        border-color: $black;
+  body {
+    color: $black;
+  }
+  .icon--switch {
+    border-color: $black;
 
-        .tog {
-            background-color: $black;
-            }
+    .tog {
+      background-color: $black;
     }
-    .icon--plus {
-        .vert,
-        .horz {
-            background-color: $black;
-            }
+  }
+  .icon--plus {
+    .vert,
+    .horz {
+      background-color: $black;
     }
+  }
 }
 .is-home-page {
-    .navi__a--home {
-        display: inline-block;
-        }
-    .navi__a--ex {
-        display: none;
-        }
+  .navi__a--home {
+    display: inline-block;
+  }
+  .navi__a--ex {
+    display: none;
+  }
+}
+.is-hover-color:hover {
+  color: red;
+  transition: color 300ms ease;
 }
