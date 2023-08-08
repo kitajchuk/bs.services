@@ -33,3 +33,19 @@
   color: red;
   transition: color 300ms ease;
 }
+
+#image-overlay--wrap {
+  position: relative;
+}
+
+#image-overlay {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+}
+
+#image-overlay:hover {
+  background-color: blue;
+  transition: background-color 300ms ease;
+}

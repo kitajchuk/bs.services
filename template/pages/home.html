@@ -21,7 +21,10 @@ casestudy.data.video_mobile : null; const videoStyle = casestudy.data.style; %>
   <% } else { %>
   <div class="media media--<%= style.toLowerCase() %>">
     <a href="<%= locals.context.getUrl( casestudy ) %>" class="-column">
-      <%- include( '../partials/image.html', { image, imageMobile } ) %>
+      <div id="image-overlay--wrap">
+        <%- include( '../partials/image.html', { image, imageMobile } ) %>
+        <div id="image-overlay" />
+      </div>
       <div class="p -bump is-hover-color"><%= title %></div>
     </a>
   </div>
